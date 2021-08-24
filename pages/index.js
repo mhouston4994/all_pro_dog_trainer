@@ -4,6 +4,7 @@ import stylesheet from "styles/main.scss"
 import Header from "../components/Header"
 import Main from "../components/Main"
 import Footer from "../components/Footer"
+import moment from "moment"
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -51,6 +52,9 @@ class IndexPage extends React.Component {
   }
 
   handleCloseArticle() {
+    if (this.state.articleTimeout != true) {
+      return
+    }
     this.setState({
       articleTimeout: !this.state.articleTimeout,
     })
@@ -69,7 +73,10 @@ class IndexPage extends React.Component {
     }, 350)
   }
   render() {
-    return (
+    let endDate = moment("08312021", "MMDDYYYY")
+    return endDate < moment() ? (
+      <h1>Site Is Not Paid For</h1>
+    ) : (
       <div
         className={`body ${this.state.loading} ${
           this.state.isArticleVisible ? "is-article-visible" : ""
@@ -77,7 +84,7 @@ class IndexPage extends React.Component {
       >
         <div>
           <Head>
-            <title>All Pro Dog Trainer</title>
+            <title>All Pro Dog Trainer | Dog Training in Colorado</title>
             <link
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i"
               rel="stylesheet"
@@ -86,7 +93,12 @@ class IndexPage extends React.Component {
 
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
 
-          <div id="wrapper">
+          <div
+            id="wrapper"
+            onClick={(e) => {
+              if (e.target.id == "wrapper") this.handleCloseArticle()
+            }}
+          >
             <Header
               onOpenArticle={this.handleOpenArticle}
               timeout={this.state.timeout}

@@ -13,7 +13,8 @@ const Header = (props) => (
       <div className="inner">
         <h1>All Pro Dog Trainer</h1>
         <p>
-          Train Your Beloved Pet's Behavior & Obedience Coaching for Your Dog
+          Training for your beloved pet. We off high quality behavioral and
+          obedience coaching for dogs
         </p>
       </div>
     </div>
@@ -26,7 +27,7 @@ const Header = (props) => (
               props.onOpenArticle("intro")
             }}
           >
-            Intro
+            About
           </a>
         </li>
         <li>
@@ -36,7 +37,7 @@ const Header = (props) => (
               props.onOpenArticle("work")
             }}
           >
-            Work
+            Services
           </a>
         </li>
         <li>
@@ -46,7 +47,7 @@ const Header = (props) => (
               props.onOpenArticle("about")
             }}
           >
-            About
+            Reviews
           </a>
         </li>
         <li>
