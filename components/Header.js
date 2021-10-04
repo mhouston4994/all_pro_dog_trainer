@@ -13,7 +13,7 @@ const Header = (props) => (
       <div className="inner">
         <h1>All Pro Dog Trainer</h1>
         <p>
-          Training for your beloved pet. We off high quality behavioral and
+          Training for your beloved pet. We offer high quality behavioral and
           obedience coaching for dogs
         </p>
       </div>

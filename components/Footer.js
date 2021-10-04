@@ -3,8 +3,10 @@ import PropTypes from "prop-types"
 const Footer = (props) => (
   <footer id="footer" style={props.timeout ? { display: "none" } : {}}>
     <p className="copyright">
-      &copy; 2021 All Pro Dog Training | Developed By{" "}
-      <a href="https://www.pardition.com">Matthew Houston</a>
+      &copy; 2021 All Pro Dog Training | (303) 263-9016
+    </p>
+    <p className="copyright">
+      Developed By <a href="https://www.pardition.com">Matthew Houston</a>
     </p>
   </footer>
 )
