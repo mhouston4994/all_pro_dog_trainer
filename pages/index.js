@@ -5,6 +5,7 @@ import Header from "../components/Header"
 import Main from "../components/Main"
 import Footer from "../components/Footer"
 import moment from "moment"
+import TagManager from "react-gtm-module"
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -18,6 +19,13 @@ class IndexPage extends React.Component {
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
+
+    const tagManagerArgs = {
+      gtmId: "GTM-TGRBWNW",
+    }
+    if (process.browser) {
+      TagManager.initialize(tagManagerArgs)
+    }
   }
 
   componentDidMount() {
@@ -72,6 +80,7 @@ class IndexPage extends React.Component {
       })
     }, 350)
   }
+
   render() {
     return (
       <div
@@ -117,6 +126,14 @@ class IndexPage extends React.Component {
               if (e.target.id == "wrapper") this.handleCloseArticle()
             }}
           >
+            <noscript>
+              <iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-TGRBWNW"
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+              ></iframe>
+            </noscript>
             <Header
               onOpenArticle={this.handleOpenArticle}
               timeout={this.state.timeout}
